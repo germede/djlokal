@@ -30,21 +30,21 @@ In the future we think about expanding this platform or create one for each regi
 
 ## Information management tasks
 *As an app user, I would like to...*
-| #   | Original                                               | Improved |
-| --- | ------------------------------------------------------ | -------- |
-| 1   | Create Event: id, location, dj, genres, date, time     |          |
-| 2   | Update Event                                           |          |
-| 3   | Delete Event                                           |          |
-| 4   | Enter feedback to event after it happened              |          |
-| 5   | Create Location: id, address, contact                  |          |
-| 6   | Update Location                                        |          |
-| 7   | Delete Location                                        |          |
-| 8   | Enter feedback to Location                             |          |
-| 9   | Enter data about DJ's - id, name, genre                |          |
-| 10  | Delete DJ data                                         |          |
-| 11  | Enter feedback to DJ                                   |          |
-| 12  | Maybe some kind of time slot overview                  |          |
-| 13  | Give an overview about best events, locations and dj's |          |
+| #   | Original                                               | Improved                                                         |
+| --- | ------------------------------------------------------ | ---------------------------------------------------------------- |
+| 1   | Create Event: id, location, dj, genres, date, time     | Create an event with fields id, location, dj, genres, date, time |
+| 2   | Update Event                                           | Update an event fields location, dj, genres, date, time          |
+| 3   | Delete Event                                           | Delete an event                                                  |
+| 4   | Enter feedback to event after it happened              | Enter feedback to an event if and only if it already happened    |
+| 5   | Create Location: id, address, contact                  | Create a location with fields id, address, contact               |
+| 6   | Update Location                                        | Update a location fields address, contact                        |
+| 7   | Delete Location                                        | Delete a location                                                |
+| 8   | Enter feedback to Location                             |                                                                  |
+| 9   | Enter data about DJ's - id, name, genre                |                                                                  |
+| 10  | Delete DJ data                                         |                                                                  |
+| 11  | Enter feedback to DJ                                   |                                                                  |
+| 12  | Maybe some kind of time slot overview                  |                                                                  |
+| 13  | Give an overview about best events, locations and dj's |                                                                  |
 
 ## Team members
 ### Client
@@ -53,9 +53,13 @@ In the future we think about expanding this platform or create one for each regi
 ### Developer
 - @[uniChkhitunidze](https://github.com/uniChkhitunidze)
 - @[gmedina-de](https://github.com/gmedina-de): 
-  - Submit some developer issues regarding README.md
-  - Add Markdown formatting to README.md
-  - Add team members to README.md
-  - Fix spelling errors in README.md
-  - Set up UML diagram
-  - Implement 50% of UML diagram
+  - Assignment 7B:
+    - Submit some developer issues regarding README.md
+    - Add Markdown formatting to README.md
+    - Add team members to README.md
+    - Fix spelling errors in README.md
+    - Improve 50% of information management tasks in README.md
+    - Set up UML diagrams
+    - Implement 50% of UML diagrams
+  - --
+
