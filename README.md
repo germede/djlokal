@@ -1,5 +1,5 @@
 # djlokal
-Uniting the local party scene, simplifying planning, fostering collaboration, and enhancing experiences.
+Uniting the local party scene, simplifying planning, fostering collaboration and enhancing experiences.
 
 >Domain: `djlokal.de`
 
@@ -54,3 +54,4 @@ party scene even more in one place or in each region.
 - @[uniChkhitunidze](https://github.com/uniChkhitunidze)
 - @[gmedina-de](https://github.com/gmedina-de): 
   - Add Markdown formatting to README.md
+  - Fix spelling errors in README.md
