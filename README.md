@@ -46,3 +46,11 @@ party scene even more in one place or in each region.
 | 12  | Maybe some kind of time slot overview                  |          |
 | 13  | Give an overview about best events, locations and dj's |          |
 
+## Team members
+### Client
+- @[PramitKumar27](https://github.com/PramitKumar27)
+- @[???](https://github.com/???)
+### Developer
+- @[uniChkhitunidze](https://github.com/uniChkhitunidze)
+- @[gmedina-de](https://github.com/gmedina-de): 
+  - Add Markdown formatting to README.md
