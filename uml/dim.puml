@@ -1,0 +1,39 @@
+@startuml model
+
+object Event {
+  ID
+  genres
+  date
+  time
+}
+
+object Location {
+  ID
+  address
+  contact
+}
+
+object DJ {
+  ID
+  name
+  genre
+}
+
+object Feedback {
+  ID
+  content
+}
+
+note left
+  <<invariant>>
+  Applies only in case of event feedback:
+  Creation of feedback allowed iff event already happened 
+  (date and time in the past)
+end note
+
+
+Event "1" --> "*" Feedback : feedbacks
+Location "1" --> "*" Feedback : feedbacks
+DJ "1" --> "*" Feedback : feedbacks
+
+@enduml

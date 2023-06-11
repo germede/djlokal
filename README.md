@@ -1,7 +1,7 @@
 # djlokal
 Uniting the local party scene, simplifying planning, fostering collaboration and enhancing experiences.
 
->Domain: `djlokal.de`
+> Domain: `djlokal.de`
 
 ## Description
 *djlokal* is an emerging business that seeks to consolidate the local party scene. 
@@ -46,6 +46,13 @@ In the future we think about expanding this platform or create one for each regi
 | 12  | Maybe some kind of time slot overview                  |                                                                  |
 | 13  | Give an overview about best events, locations and dj's |                                                                  |
 
+## UML diagrams
+### Domain information model
+![Domain information model](uml/dim.png?raw=true)
+
+### Information design model 
+![Information design model](uml/idm.png?raw=true)
+
 ## Team members
 ### Client
 - @[PramitKumar27](https://github.com/PramitKumar27)
@@ -60,6 +67,6 @@ In the future we think about expanding this platform or create one for each regi
     - Fix spelling errors in README.md
     - Improve 50% of information management tasks in README.md
     - Set up UML diagrams
-    - Implement 50% of UML diagrams
+    - Create domain information model UML diagram
   - --
 
