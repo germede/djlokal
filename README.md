@@ -53,5 +53,9 @@ In the future we think about expanding this platform or create one for each regi
 ### Developer
 - @[uniChkhitunidze](https://github.com/uniChkhitunidze)
 - @[gmedina-de](https://github.com/gmedina-de): 
+  - Submit some developer issues regarding README.md
   - Add Markdown formatting to README.md
+  - Add team members to README.md
   - Fix spelling errors in README.md
+  - Set up UML diagram
+  - Implement 50% of UML diagram
