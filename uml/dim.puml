@@ -47,6 +47,7 @@ object DJ {
 
 object Feedback {
   ID
+  stars
   content
 }
 
