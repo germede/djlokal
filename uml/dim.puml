@@ -26,6 +26,7 @@ object GenreEL <<enumeration>> {
 
 object Event {
   ID
+  name
   genres
   date
   time
@@ -33,6 +34,7 @@ object Event {
 
 object Location {
   ID
+  name
   address
   contact
 }
