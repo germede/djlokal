@@ -56,7 +56,7 @@ In the future we think about expanding this platform or create one for each regi
 ## Team members
 ### Client
 - @[PramitKumar27](https://github.com/PramitKumar27)
-- @[???](https://github.com/???)
+- @[ruehsflo](https://github.com/ruehsflo)
 ### Developer
 - @[uniChkhitunidze](https://github.com/uniChkhitunidze)
 - @[gmedina-de](https://github.com/gmedina-de): 
