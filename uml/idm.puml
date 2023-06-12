@@ -1,6 +1,4 @@
 @startuml model
-skinparam objectFontSize 20
-skinparam backgroundcolor transparent
 
 object TBD {
   - To

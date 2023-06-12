@@ -1,5 +1,29 @@
 @startuml model
 
+object GenreEL <<enumeration>> {
+  Breakbeats
+  Chill Out
+  Commercial Dance
+  Drum & Bass
+  Dubstep
+  Electro House
+  Electronica
+  Funk / R&B
+  Hard Dance
+  Hardcore Techno
+  Hip Hop
+  Indie / Underground
+  Minimal
+  Progressive House
+  Psychedelic Trance
+  Reggae
+  Tech House
+  Techno
+  Traditional House
+  Trance
+  Trap
+}
+
 object Event {
   ID
   genres
@@ -27,7 +51,7 @@ object Feedback {
 note left
   <<invariant>>
   Applies only in case of event feedback:
-  Creation of feedback allowed iff event already happened 
+  Creation of feedback allowed iff event already happened
   (date and time in the past)
 end note
 
