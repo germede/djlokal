@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://webapp23-group5.web.app/"><img src="public/favicon.svg?raw=true" width="120" title="hover text"></a>
+  <br>
+  Visit the <b>Firebase 🔥 demo</b> by tapping on the logo.
+</p>
+
 # djlokal
 
 Uniting the local party scene, simplifying planning, fostering collaboration and enhancing experiences.
@@ -90,3 +96,34 @@ _As an app user, I would like to..._
     - Set up UML diagrams using PlantUML
     - Create domain information model UML diagram
   ***
+
+## Project setup
+### Install dependencies
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Deploy to Firebase
+After committing and pushing to GitHub, 
+a build and deploy action will be triggered for the `dist` folder, 
+so no manual `npm run build && firebase deploy` at the local machine is being required.
+
+In order to reconfigure this automatic process when switching the repo, follow this guide: https://firebase.google.com/docs/hosting/github-integration.
