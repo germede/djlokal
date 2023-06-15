@@ -63,4 +63,7 @@ Event "1" --> "*" Feedback : feedbacks
 Location "1" --> "*" Feedback : feedbacks
 DJ "1" --> "*" Feedback : feedbacks
 
+Event "*" -left- "1" Location : location
+Event "*" -right- "1..*" DJ : djs
+
 @enduml
