@@ -48,8 +48,11 @@ _As an app user, I would like to..._
 | 10 | | Update a DJ fields name, genre |
 | 11 | Delete DJ data | Delete a DJ |
 | 12 | Enter feedback to DJ | Enter feedback to a DJ with fields id, stars, comment |
-| 13 | Maybe some kind of time slot overview | Show a time slot overview for events |
+| 13 | Maybe some kind of time slot overview | Show a time slot overview for a specific venue |
 | 14 | Give an overview about best events, venues and dj's | Show an overview about best events, venues and DJ's |
+| 15 | | Show an overview about event participants |
+| 16 | | Add myself as event participant |
+| 17 | | Remove myself as event participant |
 
 ## UML diagrams
 

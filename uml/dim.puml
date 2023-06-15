@@ -38,17 +38,37 @@ object DJ {
   genre
 }
 
+object User {
+  username
+  password
+}
+
+note left
+  <<invariant>>
+  Further participants can be added to de event iff 
+  capacity of the venue is greater / equal than the number of participants
+end note
+
+object Admin {
+
+}
+
+object Participant {
+  
+}
+
 object Venue {
   ID
   name
   address
+  capacity
   contact
 }
 
 object Feedback {
   ID
   stars
-  content
+  comment
 }
 
 note left
@@ -58,12 +78,17 @@ note left
   (date and time in the past)
 end note
 
+Admin -down-|> User
+Participant -right[hidden]- Admin
+Participant -down-|> User
+Event "*" -up-> "*" User : participants
+DJ -right[hidden]-> GenreEL
 
 Event "1" --> "*" Feedback : feedbacks
 Venue "1" --> "*" Feedback : feedbacks
 DJ "1" --> "*" Feedback : feedbacks
 
-Event "*" -left- "1" Venue : venue
-Event "*" -right- "1..*" DJ : djs
+Event "*" -left-> "1" Venue : venue
+Event "*" -right-> "1..*" DJ : djs
 
 @enduml
