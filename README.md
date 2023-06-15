@@ -77,7 +77,7 @@ _As an app user, I would like to..._
     - Set up UML diagrams using diagrams.net
     - Create information design model UML diagram
   ***
-- @[gmedina-de](https://github.com/gmedina-de):
+- @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
     - Add Markdown formatting to README.md
