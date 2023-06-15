@@ -23,12 +23,12 @@ Our future plans involve expanding the platform to cover multiple regions and fu
 - **Enable communication of locations and people who want to do an event**:
   Locations should show if they can be accessible for a potential event so the event planner can contact them if they are interested.
 
-- **Improve the party scene with feedback options**
+- **Improve the party scene with feedback options**:
   We want to improve the scene while providing a feedback service to comment every event, location, DJ or different constellations of the three parts.
   The feedback should show the event planner what they can do better.
   Locations should see if they can improve their setting or remove bad things.
 
-- **Future work**
+- **Future work**:
   In the future we think about expanding this platform or create one for each region to centralize the party scene even more in one place or in each region.
 
 ## Information management tasks
