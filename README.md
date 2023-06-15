@@ -64,7 +64,7 @@ In the future we think about expanding this platform or create one for each regi
 ![Domain information model](uml/dim.png?raw=true)
 
 ### Information design model 
-![Information design model](uml/UML Diagramm.png?raw=true)
+![Information design model](uml/UMLDiagramm.png?raw=true)
 ![Information design model](uml/idm.png?raw=true)
 
 ## Team members
