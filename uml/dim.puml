@@ -32,17 +32,17 @@ object Event {
   time
 }
 
-object Location {
-  ID
-  name
-  address
-  contact
-}
-
 object DJ {
   ID
   name
   genre
+}
+
+object Venue {
+  ID
+  name
+  address
+  contact
 }
 
 object Feedback {
@@ -60,10 +60,10 @@ end note
 
 
 Event "1" --> "*" Feedback : feedbacks
-Location "1" --> "*" Feedback : feedbacks
+Venue "1" --> "*" Feedback : feedbacks
 DJ "1" --> "*" Feedback : feedbacks
 
-Event "*" -left- "1" Location : location
+Event "*" -left- "1" Venue : venue
 Event "*" -right- "1..*" DJ : djs
 
 @enduml
