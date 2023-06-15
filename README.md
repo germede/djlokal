@@ -46,11 +46,25 @@ In the future we think about expanding this platform or create one for each regi
 | 12  | Maybe some kind of time slot overview                  |                                                                         |
 | 13  | Give an overview about best events, locations and dj's |                                                                         |
 
+
+##  Requirements Elaboration 
+| Client's Requrements| Elaborated requirements| 
+| --------------------| :--------------------: | 
+| Dashboard |  The data should be informed information about local events, such as exact location, as well as about Djs and ablaufsplann.  |
+| **Goal**| The goal is to search and find available event, with matching djs, location and type of music.|
+|Search destination / select suitable criteria / output available location / delete |User can get information, select desired criteria and get available/suitable event.
+| Show Goal | For example, a list where several events are shown with information that corresponds to the taste and choice of the customer. |
+|**Kriterien** | Objects is genre / event / location and DJs |
+| Selection| Selection of the preferred genres, the event of the place and the DJs from which the information can be obtained.|
+| Feedback| The app allows the user to give feedback on all three criteria Dj, venue and event after the event. It will exist as a text comment and also as a rating. |
+| Show / Update / Delete Measurements | The result will be displayed in a table format. It is possible to select/update and delete genre.|
+
 ## UML diagrams
 ### Domain information model
 ![Domain information model](uml/dim.png?raw=true)
 
 ### Information design model 
+![Information design model](uml/UMLDiagramm.png?raw=true)
 ![Information design model](uml/idm.png?raw=true)
 
 ## Team members
