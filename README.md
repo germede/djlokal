@@ -72,14 +72,20 @@ In the future we think about expanding this platform or create one for each regi
 - @[ruehsflo](https://github.com/ruehsflo)
 ### Developer
 - @[uniChkhitunidze](https://github.com/uniChkhitunidze)
+- Assignment 7B:
+    - Submit some developer issues regarding README.md
+    - Improve second 50% of information management tasks in README.md
+    - Set up UML diagrams using diagrams.net
+    - Create information design model UML diagram
+  - --
 - @[gmedina-de](https://github.com/gmedina-de): 
   - Assignment 7B:
     - Submit some developer issues regarding README.md
     - Add Markdown formatting to README.md
     - Add team members to README.md
     - Fix spelling errors in README.md
-    - Improve 50% of information management tasks in README.md
-    - Set up UML diagrams
+    - Improve first 50% of information management tasks in README.md
+    - Set up UML diagrams using PlantUML
     - Create domain information model UML diagram
   - --
 
