@@ -86,6 +86,9 @@ _As an app user, I would like to..._
     - Set up UML diagrams using diagrams.net
     - Create information design model UML diagram
   ***
+  - Assignment 7C-1:
+    - Implement Genre enum
+    - Replace icons in navigation
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
@@ -96,6 +99,14 @@ _As an app user, I would like to..._
     - Set up UML diagrams using PlantUML
     - Create domain information model UML diagram
   ***
+  - Assignment 7C-1:
+    - Set up NPM project with required libraries
+    - Set up firebase and firestore environment
+    - Set up GitHub actions for automatic deployment
+    - Implement demo tutorial app using Vue.js
+    - Implement responsive UI using Bootstrap and Feather icons
+    - Implement navigation bar
+    - Implement DJ model class and its CRUD operations
 
 ## Project setup
 ### Install dependencies
