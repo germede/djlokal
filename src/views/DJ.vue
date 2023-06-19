@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div v-if="currentDJ">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">

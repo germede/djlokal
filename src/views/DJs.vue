@@ -1,5 +1,6 @@
+<!-- eslint-disable max-len -->
 <template>
-  <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap">
+  <div class="row">
     <div class="col-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <h1>
