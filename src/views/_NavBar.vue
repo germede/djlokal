@@ -8,8 +8,7 @@
         </button>
       </div>
       <router-link to="/" class="navbar-brand">
-        djlokal
-        <vue-feather type="music" animation="pulse"></vue-feather>
+        djl<vue-feather type="disc" size="1rem"></vue-feather>kal
       </router-link>
       <div class="collapse navbar-collapse" data-bs-parent="body" id="nav-bar">
         <ul class="navbar-nav mx-auto mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
@@ -21,7 +20,7 @@
           </li>
           <li class="nav-link">
             <router-link to="/events" class="nav-link">
-              <vue-feather type="disc" class="d-lg-block mx-auto"></vue-feather>
+              <vue-feather type="music" class="d-lg-block mx-auto"></vue-feather>
               Events
             </router-link>
           </li>
