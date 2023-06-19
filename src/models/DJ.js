@@ -1,14 +1,14 @@
 import firebase from "../firebase";
 
-const db = firebase.collection("/tutorials");
+const db = firebase.collection("/djs");
 
-class Tutorial {
+class DJ {
   getAll() {
     return db;
   }
 
-  create(tutorial) {
-    return db.add(tutorial);
+  create(dj) {
+    return db.add(dj);
   }
 
   update(id, value) {
@@ -20,4 +20,4 @@ class Tutorial {
   }
 }
 
-export default new Tutorial();
+export default new DJ();
