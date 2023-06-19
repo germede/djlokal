@@ -82,4 +82,18 @@ export default {
 .nav-link:not(:hover):not(.router-link-active)>i {
   animation: none;
 }
+
+.navbar-brand.router-link-active {
+  color: var(--bs-primary) !important;
+}
+.navbar-brand > i {
+  -webkit-animation: rotateY 1s infinite linear;
+  animation: rotateY 1s infinite linear;
+}
+@-webkit-keyframes rotateY {
+  to { -webkit-transform: rotateY(360deg); }
+}
+@keyframes rotateY {
+  to { transform: rotateY(360deg); }
+}
 </style>

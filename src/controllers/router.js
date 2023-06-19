@@ -3,7 +3,11 @@ import { createWebHistory, createRouter } from "vue-router";
 const routes =  [
   {
     path: "/",
-    alias: "/djs",
+    name: "dashboard",
+    component: () => import("../views/Dashboard")
+  },
+  {
+    path: "/djs",
     name: "djs",
     component: () => import("../views/DJs")
   }
