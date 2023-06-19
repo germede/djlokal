@@ -87,6 +87,7 @@ export default {
   color: var(--bs-primary) !important;
 }
 .navbar-brand > i {
+  color: var(--bs-white) !important;
   -webkit-animation: rotateY 1s infinite linear;
   animation: rotateY 1s infinite linear;
 }
