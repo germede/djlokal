@@ -107,6 +107,7 @@ _As an app user, I would like to..._
     - Implement responsive UI using Bootstrap and Feather icons
     - Implement navigation bar
     - Implement DJ model class and its CRUD operations
+    - Implement generate test data and clear data functionalities
 
 ## Project setup
 ### Install dependencies
