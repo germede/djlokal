@@ -11,7 +11,7 @@
       </h2>
       <div class="btn-toolbar">
         <div class="btn-group">
-          <button class="btn btn-outline-danger" @click="deleteDJ">
+          <button v-if="currentDJ.id" class="btn btn-outline-danger" @click="deleteDJ">
             <vue-feather type="trash" size="11"></vue-feather>
             Delete
           </button>
