@@ -10,7 +10,7 @@ const routes =  [
   {
     path: "/add",
     name: "add",
-    component: () => import("../views/AddTutorial")
+    component: () => import("../views/TutorialAdd")
   }
 ];
 
