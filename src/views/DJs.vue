@@ -1,6 +1,6 @@
 <template>
   <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <h1>
           <vue-feather type="list"></vue-feather>
@@ -13,14 +13,14 @@
           </button>
         </div>
       </div>
-      <ul class="list-group mt-3">
+      <ul class="list-group mt-3 mb-3">
         <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(dj, index) in items" :key="index"
           @click="setActive(dj, index)">
           {{ dj.name }}
         </li>
       </ul>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div v-if="currentItem">
         <d-j-item :dj="currentItem" @refreshList="refreshList" />
       </div>
@@ -58,6 +58,7 @@ export default {
         _items.push({
           id: id,
           name: data.name,
+          genre: data.genre,
         });
       });
 
@@ -72,6 +73,7 @@ export default {
     addItem() {
       this.currentItem = {
         name: "",
+        genre: "",
       };
     },
 
