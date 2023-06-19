@@ -1,5 +1,5 @@
 <template>
-  <nav-bar/>
+  <nav-bar />
   <main id="app">
     <div class="container mt-3">
       <router-view />
@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import NavBar from "./views/_Navigation.vue";
+import NavBar from "./views/_NavBar.vue";
 export default {
   name: "app",
   components: { NavBar },
 };
 </script>
 
-<style scoped>
+<style>
 </style>
