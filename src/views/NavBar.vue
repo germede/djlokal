@@ -14,15 +14,33 @@
       <div class="collapse navbar-collapse" data-bs-parent="body" id="nav-bar">
         <ul class="navbar-nav mx-auto mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
           <li class="nav-link">
-            <router-link to="/tutorials" class="nav-link">
-              <vue-feather type="grid" animation="spin" class="d-lg-block mx-auto"></vue-feather>
-              Dashboard
+            <router-link to="/calendar" class="nav-link">
+              <vue-feather type="calendar" class="d-lg-block mx-auto"></vue-feather>
+              Calendar
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/add" class="nav-link">
-              <vue-feather type="crosshair" animation="spin" class="d-lg-block mx-auto"></vue-feather>
-              Add
+            <router-link to="/events" class="nav-link">
+              <vue-feather type="disc" class="d-lg-block mx-auto"></vue-feather>
+              Events
+            </router-link>
+          </li>
+          <li class="nav-link">
+            <router-link to="/djs" class="nav-link">
+              <vue-feather type="users" class="d-lg-block mx-auto"></vue-feather>
+              DJs
+            </router-link>
+          </li>
+          <li class="nav-link">
+            <router-link to="/venues" class="nav-link">
+              <vue-feather type="map-pin" class="d-lg-block mx-auto"></vue-feather>
+              Venues
+            </router-link>
+          </li>
+          <li class="nav-link">
+            <router-link to="/best-of" class="nav-link">
+              <vue-feather type="star" class="d-lg-block mx-auto"></vue-feather>
+              Best of
             </router-link>
           </li>
         </ul>
