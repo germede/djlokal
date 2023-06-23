@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <form>
+    <form @submit.prevent="updateDJ">
       <div class="form-floating mt-3">
         <input class="form-control" v-model="currentDJ.name" id="name" placeholder="Name">
         <label for="name">Name</label>
@@ -31,16 +31,16 @@
       <div class="form-floating mt-3">
         <select required class="form-select" v-model="currentDJ.genre" id="genre">
           <option disabled value="">Select one</option>
-          <option v-for="(genre,index) in genres" :key="index" :value="index" >{{genre}}</option>
+          <option v-for="(genre, index) in genres" :key="index" :value="index">{{ genre }}</option>
         </select>
         <label for="genre">Genre</label>
       </div>
+      <hr>
+      <button class="btn btn-primary btn-lg w-100">
+        <vue-feather type="save" size="16"></vue-feather>
+        Submit
+      </button>
     </form>
-    <hr>
-    <button class="btn btn-primary btn-lg w-100" @click="updateDJ">
-      <vue-feather type="save" size="16"></vue-feather>
-      Submit
-    </button>
     <p>{{ message }}</p>
   </div>
   <div v-else>
