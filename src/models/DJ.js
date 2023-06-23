@@ -1,6 +1,6 @@
-import firebase from "../firebase";
+import { firestore } from "../firebase";
 
-const db = firebase.collection("/djs");
+const db = firestore.collection("/djs");
 
 class DJ {
   getAll() {
