@@ -13,13 +13,13 @@
       <div class="collapse navbar-collapse" data-bs-parent="body" id="nav-bar">
         <ul class="navbar-nav mx-auto mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
           <li class="nav-link">
-            <router-link to="/calendar" class="nav-link">
+            <router-link to="/calendar" class="nav-link disabled">
               <vue-feather type="calendar" class="d-lg-block mx-auto"></vue-feather>
               Calendar
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/events" class="nav-link">
+            <router-link to="/events" class="nav-link disabled">
               <vue-feather type="music" class="d-lg-block mx-auto"></vue-feather>
               Events
             </router-link>
@@ -31,13 +31,13 @@
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/venues" class="nav-link">
+            <router-link to="/venues" class="nav-link disabled">
               <vue-feather type="map-pin" class="d-lg-block mx-auto"></vue-feather>
               Venues
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/best-of" class="nav-link">
+            <router-link to="/best-of" class="nav-link disabled">
               <vue-feather type="star" class="d-lg-block mx-auto"></vue-feather>
               Best of
             </router-link>
@@ -45,9 +45,9 @@
         </ul>
         <ul class="navbar-nav mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
           <li>
-            <router-link to="/settings" class="nav-link text-secondary">
-              <vue-feather type="settings" animation="spin"></vue-feather>
-              Settings
+            <router-link to="/sign-in" class="nav-link">
+              <vue-feather type="log-in"></vue-feather>
+              Sign in
             </router-link>
           </li>
         </ul>
