@@ -16,13 +16,13 @@ export default {
   components: { NavBar },
   data() {
     return {
-      signedIn: true
+      signedIn: false
     };
   },
   beforeMount() {
     const currentPage = window.location.pathname,
       startPage = ["/"],
-      authorizedPages = startPage.concat(["/djs"]);
+      authorizedPages = startPage.concat(["/djs","/sign-in"]);
     try {
       let _this = this;
       auth.onAuthStateChanged(async function (user) {

@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 
-const routes =  [
+const routes = [
   {
     path: "/sign-in",
     name: "sign-in",
@@ -15,6 +15,11 @@ const routes =  [
     path: "/djs",
     name: "djs",
     component: () => import("../views/DJs")
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    component: () => import("../views/_404")
   }
 ];
 
