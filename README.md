@@ -89,6 +89,10 @@ _As an app user, I would like to..._
   - Assignment 7C-1:
     - Implement Genre enum
     - Replace icons in navigation
+  ***
+  - Assignment 7C-2:
+    - Handle authentication status
+    - Disable UI elements when not logged in
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
@@ -108,6 +112,11 @@ _As an app user, I would like to..._
     - Implement navigation bar
     - Implement DJ model class and its CRUD operations
     - Implement generate test data and clear data functionalities
+  ***
+  - Assignment 7C-2:
+    - Set up firebase authentication
+    - Add sign in / out UI elements
+    - Implement sign in / out functionality
 
 ## Project setup
 ### Install dependencies
