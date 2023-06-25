@@ -92,7 +92,7 @@ _As an app user, I would like to..._
   ***
   - Assignment 7C-2:
     - Handle authentication status
-    - Disable UI elements when not logged in
+    - Enable or disable UI elements depending of authentication status
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md

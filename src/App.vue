@@ -2,7 +2,7 @@
   <nav-bar :signedIn="signedIn" @signOut="signedIn = false" />
   <main id="app">
     <div class="container mt-3">
-      <router-view/>
+      <router-view :signedIn="signedIn" />
     </div>
   </main>
 </template>
@@ -22,7 +22,7 @@ export default {
   beforeMount() {
     const currentPage = window.location.pathname,
       startPage = ["/"],
-      authorizedPages = startPage.concat(["/djs","/sign-in"]);
+      authorizedPages = startPage.concat(["/djs", "/sign-in"]);
     try {
       let _this = this;
       auth.onAuthStateChanged(async function (user) {
@@ -48,16 +48,6 @@ export default {
             } else {
               // if current page is start page,
               // grant access to the four database operations
-              if (startPage.includes(currentPage)) {
-                // declare variables for accessing UI elements
-                // const clearDataBtn = document.getElementById("clearData"),
-                //   generateDataBtns = document.querySelectorAll(".generateTestData"),
-                //   disabledEls = document.querySelectorAll(".disabled");
-                // // perform DOM operations to enable menu items
-                // for (const el of disabledEls) el.classList.remove("disabled");
-                // clearDataBtn.disabled = false;
-                // for (const btn of generateDataBtns) btn.disabled = false;
-              }
               _this.signedIn = true;
               console.log(`Authenticated as ${user.email} with verified email`);
             }

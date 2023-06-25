@@ -1,13 +1,13 @@
 <!-- eslint-disable max-len -->
 <template>
   <h1>Welcome</h1>
-  You can select an <b>item</b> from the upper navigation bar to continue or:
+  You can select an <b>item</b> from the upper navigation bar to continue or, if authenticated:
   <div class="row mt-3">
     <div class="col-md-6">
-      <button class="btn w-100 btn-primary" @click="generateTestData">Generate test data</button>
+      <button class="btn w-100 btn-primary" :disabled="!signedIn" @click="generateTestData">Generate test data</button>
     </div>
     <div class="col-md-6">
-      <button class="btn w-100 btn-danger" @click="clearAllData">Delete <b>all!</b> data</button>
+      <button class="btn w-100 btn-danger" :disabled="!signedIn" @click="clearAllData">Delete <b>all!</b> data</button>
     </div>
   </div>
 </template>
@@ -17,6 +17,9 @@ import DJ from "../models/DJ";
 
 export default {
   name: "nav-bar",
+  props: {
+    signedIn: Boolean
+  },
   methods: {
     generateTestData() {
       DJ.create({ name: "Calvin Harris", genre: "ELECTRONICA" });
