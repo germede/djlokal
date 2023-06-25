@@ -45,7 +45,11 @@
         </ul>
         <ul class="navbar-nav mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
           <li>
-            <router-link to="/sign-in" class="nav-link">
+            <a v-if="signedIn" href="#" @click="signOut" class="nav-link">
+              <vue-feather type="log-out"></vue-feather>
+              Sign out
+            </a>
+            <router-link v-else to="/sign-in" class="nav-link">
               <vue-feather type="log-in"></vue-feather>
               Sign in
             </router-link>
@@ -57,8 +61,24 @@
 </template>
   
 <script>
+import { auth } from "../firebase.js";
+
 export default {
-  name: "nav-bar"
+  name: "nav-bar",
+  props: {
+    signedIn: Boolean
+  },
+  methods: {
+    async signOut() {
+      try {
+        this.$emit("signOut");
+        auth.signOut();
+        window.location.pathname = "/"; // redirect to start page
+      } catch (e) {
+        console.error(`${e.constructor.name}: ${e.message}`);
+      }
+    },
+  },
 };
 </script>
   
@@ -86,15 +106,22 @@ export default {
 .navbar-brand.router-link-active {
   color: var(--bs-primary) !important;
 }
-.navbar-brand > i {
+
+.navbar-brand>i {
   color: var(--bs-white) !important;
   -webkit-animation: rotateY 1s infinite linear;
   animation: rotateY 1s infinite linear;
 }
+
 @-webkit-keyframes rotateY {
-  to { -webkit-transform: rotateY(360deg); }
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
 }
+
 @keyframes rotateY {
-  to { transform: rotateY(360deg); }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 <!-- eslint-disable max-len -->
 <template>
-  <h1>Welcome, {Username}</h1>
+  <h1>Welcome</h1>
   You can select an <b>item</b> from the upper navigation bar to continue or:
   <div class="row mt-3">
     <div class="col-md-6">
