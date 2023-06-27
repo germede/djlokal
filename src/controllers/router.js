@@ -17,6 +17,11 @@ const routes = [
     component: () => import("../views/DJs")
   },
   {
+    path: "/venues",
+    name: "venues",
+    component: () => import("../views/Venues")
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "404",
     component: () => import("../views/_404")

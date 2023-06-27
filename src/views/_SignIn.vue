@@ -16,7 +16,7 @@
           <input class="form-control" type="password" id="password" name="password" placeholder="Password">
           <label for="password">Password</label>
         </div>
-        <a href="/" class="mt-3">Forgot your password?</a>
+        <a href="#" @click="forgotPassword" class="mt-3">Forgot your password?</a>
         <button class="btn btn-primary btn-lg mt-3 w-100" type="submit">
           <vue-feather type="log-in" size="16"></vue-feather>
           Sign in
@@ -77,8 +77,21 @@ export default {
           const user =
             await auth.createUserWithEmailAndPassword(email, password);
           await user.user.sendEmailVerification();
-          alert(`Account created ${email}. 
-            Check your email for instructions to verify this account.`);
+          alert(`Account created ${email}, check your email for instructions.`);
+          window.location.pathname = "/";
+        } catch (e) {
+          alert(e.message);
+        }
+      }
+    },
+    async forgotPassword() {
+      const email = prompt(
+        "Provide the email you want the password changed for"
+      );
+      if (email) {
+        try {
+          await auth.sendPasswordResetEmail(email);
+          alert(`Check your email "${email} to choose a new password.`);
           window.location.pathname = "/";
         } catch (e) {
           alert(e.message);
@@ -89,4 +102,4 @@ export default {
 };
 </script>
   
-<style scoped></style>
+<style></style>

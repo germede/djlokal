@@ -31,7 +31,7 @@
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/venues" class="nav-link disabled">
+            <router-link to="/venues" class="nav-link">
               <vue-feather type="map-pin" class="d-lg-block mx-auto"></vue-feather>
               Venues
             </router-link>

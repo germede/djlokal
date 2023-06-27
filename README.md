@@ -118,6 +118,7 @@ _As an app user, I would like to..._
     - Add sign in / out UI elements
     - Implement sign in / out functionality
     - Implement 404 page
+    - Implement own verifyEmail / forgotPassword functionality
 
 ## Project setup
 ### Install dependencies
