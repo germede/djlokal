@@ -119,6 +119,10 @@ _As an app user, I would like to..._
     - Implement sign in / out functionality
     - Implement 404 page
     - Implement own verifyEmail / forgotPassword functionality
+  ***
+  - Assignment 7C-3:
+    - Implementation of property checks on view / model code
+    - Implementation of asynchronous ID/uniqueness constraint	
 
 ## Project setup
 ### Install dependencies

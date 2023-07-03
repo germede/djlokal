@@ -29,7 +29,7 @@
         <label for="name">Name</label>
       </div>
       <div class="form-floating mt-3">
-        <select required class="form-select" v-model="currentDJ.genre" id="genre">
+        <select class="form-select" v-model="currentDJ.genre" id="genre">
           <option disabled value="">Select one</option>
           <option v-for="(genre, index) in genres" :key="index" :value="index">{{ genre }}</option>
         </select>
@@ -70,28 +70,28 @@ export default {
     },
   },
   methods: {
-    updateDJ() {
+    async updateDJ() {
       const data = {
         name: this.currentDJ.name,
         genre: this.currentDJ.genre,
       };
-      if (!this.currentDJ.id) {
-        DJ.create(data)
-          .then(() => {
-            console.log("The dj was created successfully!");
-            this.submitted = true;
-          })
-          .catch(e => {
-            console.log(e);
-          });
-      } else {
-        DJ.update(this.currentDJ.id, data)
-          .then(() => {
-            this.message = "The dj was updated successfully!";
-          })
-          .catch((e) => {
-            console.log(e);
-          });
+      try {
+        if (!this.currentDJ.id) {
+          await DJ.create(data)
+            .then(() => {
+              console.log("The dj was created successfully!");
+              this.submitted = true;
+            });
+        } else {
+          await DJ.update(this.currentDJ.id, data)
+            .then(() => {
+              this.message = "The dj was updated successfully!";
+            });
+        }
+        this.$emit("refreshList");
+      } catch (e) {
+        this.message = e;
+        console.log(e);
       }
     },
 
@@ -101,7 +101,8 @@ export default {
           this.$emit("refreshList");
         })
         .catch((e) => {
-          console.log(e);
+          this.message = e;
+          console.error(e);
         });
     },
   },
