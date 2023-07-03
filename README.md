@@ -96,6 +96,7 @@ _As an app user, I would like to..._
   ***
   - Assignment 7C-3:
     - Add external JSON file for test data
+    - Add firestore rules
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
