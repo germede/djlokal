@@ -22,13 +22,21 @@ export default {
   },
   methods: {
     generateTestData() {
-      DJ.create({ name: "Calvin Harris", genre: "ELECTRONICA" });
-      DJ.create({ name: "David Guetta", genre: "COMMERCIAL_DANCE" });
-      DJ.create({ name: "Martin Garrix", genre: "PROGRESSIVE_HOUSE" });
-      DJ.create({ name: "Tiësto", genre: "ELECTRO_HOUSE" });
-      DJ.create({ name: "Steve Aoki", genre: "HIP_HOP" });
-      DJ.create({ name: "Skrillex", genre: "DUBSTEP" });
-      alert("Test data was successfully created");
+      fetch("/testdata.json")
+        .then(response => {
+          if (!response.ok) throw new Error("HTTP error " + response.status);
+          return response.json();
+        })
+        .then(json => {
+          json.forEach(dj => {
+            DJ.create(dj);
+          });
+          alert(`${json.length} DJ's were successfully created`);
+        })
+        .catch(function (e) {
+          this.dataError = true;
+          alert(e);
+        });
     },
     clearAllData() {
       DJ.getAll().get().then(res => {

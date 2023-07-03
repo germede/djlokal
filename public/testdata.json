@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Calvin Harris",
+        "genre": "ELECTRONICA"
+    },
+    {
+        "name": "David Guetta",
+        "genre": "COMMERCIAL_DANCE"
+    },
+    {
+        "name": "Martin Garrix",
+        "genre": "PROGRESSIVE_HOUSE"
+    },
+    {
+        "name": "Tiësto",
+        "genre": "ELECTRO_HOUSE"
+    },
+    {
+        "name": "Steve Aoki",
+        "genre": "HIP_HOP"
+    },
+    {
+        "name": "Skrillex",
+        "genre": "DUBSTEP"
+    }
+]

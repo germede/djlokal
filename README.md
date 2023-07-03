@@ -92,7 +92,10 @@ _As an app user, I would like to..._
   ***
   - Assignment 7C-2:
     - Handle authentication status
-    - Enable or disable UI elements depending of authentication status
+    - Enable or disable UI elements depending of authentication status 
+  ***
+  - Assignment 7C-3:
+    - Add external JSON file for test data
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
@@ -121,8 +124,9 @@ _As an app user, I would like to..._
     - Implement own verifyEmail / forgotPassword functionality
   ***
   - Assignment 7C-3:
-    - Implementation of property checks on view / model code
-    - Implementation of asynchronous ID/uniqueness constraint	
+    - Implement property checks on view / model code
+    - Implement asynchronous ID/uniqueness constraint	
+    - Implement DB-UI synchronization 
 
 ## Project setup
 ### Install dependencies

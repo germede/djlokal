@@ -31,7 +31,6 @@ class DJ {
     await db.where("name", "==", dj.name)
       .get()
       .then((querySnapshot) => {
-        console.log(querySnapshot);
         if (!(querySnapshot.empty))
           error += `There is already a DJ with name '${dj.name}'.\n`;
       });
