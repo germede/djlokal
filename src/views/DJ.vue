@@ -80,7 +80,7 @@ export default {
           await DJ.create(data)
             .then(() => {
               console.log("The dj was created successfully!");
-              this.submitted = true;
+              this.$emit("refreshList");
             });
         } else {
           await DJ.update(this.currentDJ.id, data)
@@ -88,7 +88,6 @@ export default {
               this.message = "The dj was updated successfully!";
             });
         }
-        this.$emit("refreshList");
       } catch (e) {
         this.message = e;
         console.log(e);
@@ -110,7 +109,6 @@ export default {
     this.message = "";
     this.currentDJ = { ...this.dj };
     this.genres = GenreEL;
-    console.log(this.currentDJ);
   },
 };
 </script>
