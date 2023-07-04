@@ -6,10 +6,13 @@ service cloud.firestore {
 
     match /djs/{djId} {
       allow read,list: if true;
-    	allow create,update,delete: if request.auth != null
+      allow delete: if isSignedIn(); 
+    	allow create,update: if (isSignedIn() && isValidDJ());  
+    }
+    function isSignedIn() {
+    	return request.auth != null
       && request.auth.uid != null  
-      && request.auth.token.firebase.sign_in_provider != 'anonymous' 
-      && isValidDJ();  
+      && request.auth.token.firebase.sign_in_provider != 'anonymous';
     }
     function isValidDJ() {
     	return incomingData().name.size() > 0 
