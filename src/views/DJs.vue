@@ -76,6 +76,7 @@ export default {
         name: "",
         genre: "",
       };
+      this.currentIndex = -1;
     },
 
     setActive(item, index) {

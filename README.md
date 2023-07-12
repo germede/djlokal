@@ -97,6 +97,10 @@ _As an app user, I would like to..._
   - Assignment 7C-3:
     - Add external JSON file for test data
     - Add firestore rules
+  ***
+  - Assignment 7C-4:
+    - Implement Venue model
+    - Implement Venue model
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
@@ -128,6 +132,8 @@ _As an app user, I would like to..._
     - Implement property checks on view / model code
     - Implement asynchronous ID/uniqueness constraint	
     - Implement DB-UI synchronization 
+  ***
+  - Assignment 7C-4:
 
 ## Project setup
 ### Install dependencies

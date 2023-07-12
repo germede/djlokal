@@ -25,13 +25,16 @@ class DJ {
   async validate(dj) {
     let error = "";
 
-    if (!dj.name || dj === "") error += "DJ name is required.\n";
-    if (!(typeof dj.name === "string")) error += "DJ name must be a string.\n";
-    if (dj.name.length > 20) error += "DJ name must be at most 20 chars.\n";
+    if (!dj.name || dj.name === "") 
+      error += "DJ name is required.\n";
+    else if (!(typeof dj.name === "string")) 
+      error += "DJ name must be a string.\n";
+    else if (dj.name.length > 20) 
+      error += "DJ name must be at most 20 chars.\n";
     await db.where("name", "==", dj.name)
       .get()
       .then((querySnapshot) => {
-        if (!(querySnapshot.empty))
+        if (!(querySnapshot.empty) && (querySnapshot.id !== dj.id))
           error += `There is already a DJ with name '${dj.name}'.\n`;
       });
 

@@ -24,32 +24,32 @@ class Venue {
   async validate(venue) {
     let error = "";
 
-    if (!venue.name || venue === "")
+    if (!venue.name || venue.name === "")
       error += "Venue name is required.\n";
-    if (!(typeof venue.name === "string")) 
+    else if (!(typeof venue.name === "string")) 
       error += "Venue name must be a string.\n";
-    if (venue.name.length > 20) 
+    else if (venue.name.length > 20) 
       error += "Venue name must be at most 20 chars.\n";
     await db.where("name", "==", venue.name)
       .get()
       .then((querySnapshot) => {
-        if (!(querySnapshot.empty))
+        if (!(querySnapshot.empty) && (querySnapshot.id !== venue.id))
           error += `There is already a Venue with name '${venue.name}'.\n`;
       });
 
-    if (!venue.address || venue === "")
+    if (!venue.address || venue.address === "")
       error += "Venue address is required.\n";
-    if (!(typeof venue.address === "string")) 
+    else if (!(typeof venue.address === "string")) 
       error += "Venue address must be a string.\n";
-    if (venue.address.length < 20) 
+    else if (venue.address.length < 20) 
       error += "Venue address must be at least 20 chars.\n";
 
 
     if (!venue.capacity)
-      error += "Venue address is required.\n";
-    if (!Number.isInteger(venue.capacity)) 
+      error += "Venue capacity is required.\n";
+    else if (!Number.isInteger(venue.capacity)) 
       error += "Venue capacity must be an integer.\n";
-    if (venue.address.capacity < 1) 
+    else if (Number.parseInt(venue.capacity) < 1) 
       error += "Venue capacity must be a positive integer.\n";
 
     if (venue.contact && !(typeof venue.contact === "string")) 

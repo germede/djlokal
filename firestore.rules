@@ -9,6 +9,16 @@ service cloud.firestore {
       allow delete: if isSignedIn(); 
     	allow create,update: if (isSignedIn() && isValidDJ());  
     }
+    match /venues/{venueId} {
+      allow read,list: if true;
+      allow delete: if isSignedIn(); 
+    	allow create,update: if (isSignedIn() && isValidVenue());  
+    }
+    match /events/{eventId} {
+      allow read,list: if true;
+      allow delete: if isSignedIn(); 
+    	allow create,update: if (isSignedIn() && isValidEvent());  
+    }
     function isSignedIn() {
     	return request.auth != null
       && request.auth.uid != null  
@@ -18,6 +28,20 @@ service cloud.firestore {
     	return incomingData().name.size() > 0 
       && incomingData().name.size() < 21 
       && incomingData().genre.size() > 0;
+  	}
+    function isValidVenue() {
+    	return incomingData().name.size() > 0 
+      && incomingData().name.size() < 21 
+      && incomingData().address.size() > 20;
+    }
+    function isValidEvent() {
+    	return incomingData().name.size() > 0 
+      && incomingData().name.size() < 21 
+      && incomingData().genres.size() > 0
+      && incomingData().date.size() > 0
+      && incomingData().time.size() > 0
+      && incomingData().venue.size() > 0
+      && incomingData().djs.size() > 0;
   	}
     function incomingData() {
       return request.resource.data;
