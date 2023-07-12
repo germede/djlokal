@@ -25,11 +25,11 @@ class DJ {
   async validate(dj) {
     let error = "";
 
-    if (!dj.name || dj.name === "") 
+    if (!dj.name || dj.name === "")
       error += "DJ name is required.\n";
-    else if (!(typeof dj.name === "string")) 
+    else if (!(typeof dj.name === "string"))
       error += "DJ name must be a string.\n";
-    else if (dj.name.length > 20) 
+    else if (dj.name.length > 20)
       error += "DJ name must be at most 20 chars.\n";
     await db.where("name", "==", dj.name)
       .get()
@@ -38,7 +38,10 @@ class DJ {
           error += `There is already a DJ with name '${dj.name}'.\n`;
       });
 
-    if (!dj.genre || !GenreEL[dj.genre]) error += "DJ genre is required.\n";
+    if (!dj.genre)
+      error += "DJ genre is required.\n";
+    else if (!GenreEL[dj.genre])
+      error += `'${dj.genre}' is not a genre.\n`;
 
     if (error) throw Error(error);
   }
