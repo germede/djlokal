@@ -22,6 +22,11 @@ const routes = [
     component: () => import("../views/Venues")
   },
   {
+    path: "/events",
+    name: "events",
+    component: () => import("../views/Events")
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "404",
     component: () => import("../views/_404")
