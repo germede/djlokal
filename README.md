@@ -99,9 +99,16 @@ _As an app user, I would like to..._
     - Add firestore rules
   ***
   - Assignment 7C-4:
-    - Implement Venue model
-    - Implement Venue CRUD operations 
-    - Implement Event model
+    - Implementation of Venue Model
+    - Implementation of Venue CRUD operations
+    - Implementation of Venue validation
+    - Implementation of Event Model
+    - Implementation of Event CRUD operations
+    - Implementation of Event validation
+    - Implementation of Event calendar
+    - Implementation of pagination for venues, events and feedbacks
+    - Implementation of test data for venues, events and feedbacks
+    - Implementation of firestore rules for venues, events and feedbacks
 - @[gmedina-de](https://github.com/gmedina-de)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
@@ -135,6 +142,10 @@ _As an app user, I would like to..._
     - Implement DB-UI synchronization 
   ***
   - Assignment 7C-4:
+    - Implementation of Feedback Model
+    - Implementation of Feedback CRUD operations
+    - Implementation of Feedback validation
+    - Implementation of best of lists
 
 ## Project setup
 ### Install dependencies
