@@ -22,7 +22,10 @@
             <div class="fw-bold">{{ venue.name }}</div>
             {{ venue.address }}
           </div>
-          <span class="badge bg-secondary rounded-pill">{{ venue.capacity }}</span>
+          <span class="badge bg-secondary rounded-pill">
+            <vue-feather type="users" size="11"></vue-feather>
+            {{ venue.capacity }}
+          </span>
         </li>
       </ul>
     </div>

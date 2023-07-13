@@ -20,9 +20,11 @@
           @click="setActive(event, index)">
           <div class="ms-2 me-auto">
             <div class="fw-bold">{{ event.name }}</div>
-            {{ event.address }}
           </div>
-          <span class="badge bg-secondary rounded-pill">{{ event.capacity }}</span>
+          <span class="badge bg-secondary rounded-pill">
+            <vue-feather type="calendar" size="11"></vue-feather>
+            {{ event.date }} {{ event.time }}
+          </span>
         </li>
       </ul>
     </div>
