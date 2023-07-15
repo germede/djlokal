@@ -26,9 +26,9 @@ class Venue {
 
     if (!venue.name || venue.name === "")
       error += "Venue name is required.\n";
-    else if (!(typeof venue.name === "string")) 
+    else if (!(typeof venue.name === "string"))
       error += "Venue name must be a string.\n";
-    else if (venue.name.length > 20) 
+    else if (venue.name.length > 20)
       error += "Venue name must be at most 20 chars.\n";
     await db.where("name", "==", venue.name)
       .get()
@@ -39,23 +39,35 @@ class Venue {
 
     if (!venue.address || venue.address === "")
       error += "Venue address is required.\n";
-    else if (!(typeof venue.address === "string")) 
+    else if (!(typeof venue.address === "string"))
       error += "Venue address must be a string.\n";
-    else if (venue.address.length < 20) 
+    else if (venue.address.length < 20)
       error += "Venue address must be at least 20 chars.\n";
 
 
     if (!venue.capacity)
       error += "Venue capacity is required.\n";
-    else if (!Number.isInteger(venue.capacity)) 
+    else if (!Number.isInteger(venue.capacity))
       error += "Venue capacity must be an integer.\n";
-    else if (Number.parseInt(venue.capacity) < 1) 
+    else if (Number.parseInt(venue.capacity) < 1)
       error += "Venue capacity must be a positive integer.\n";
 
-    if (venue.contact && !(typeof venue.contact === "string")) 
+    if (venue.contact && !(typeof venue.contact === "string"))
       error += "Venue contact must be a string.\n";
 
     if (error) throw Error(error);
+  }
+
+  fromFirestore(snapshot) {
+    let id = snapshot.id;
+    let data = snapshot.data();
+    return {
+      id: id,
+      name: data.name,
+      address: data.address,
+      capacity: data.capacity,
+      contact: data.contact,
+    };
   }
 }
 

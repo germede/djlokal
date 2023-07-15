@@ -45,6 +45,16 @@ class DJ {
 
     if (error) throw Error(error);
   }
+
+  fromFirestore(snapshot) {
+    let id = snapshot.id;
+    let data = snapshot.data();
+    return {
+      id: id,
+      name: data.name,
+      genre: data.genre,
+    };
+  }
 }
 
 export default new DJ();

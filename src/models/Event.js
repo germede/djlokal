@@ -74,6 +74,20 @@ class Event {
 
     if (error) throw Error(error);
   }
+
+  fromFirestore(snapshot) {
+    let id = snapshot.id;
+    let data = snapshot.data();
+    return {
+      id: id,
+      name: data.name,
+      genres: data.genres,
+      date: data.date,
+      time: data.time,
+      venue: data.venue,
+      djs: data.djs,
+    };
+  }
 }
 
 export default new Event();
