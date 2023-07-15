@@ -19,6 +19,11 @@ service cloud.firestore {
       allow delete: if isSignedIn(); 
     	allow create,update: if (isSignedIn() && isValidEvent());  
     }
+    match /feedbacks/{feedbackId} {
+      allow read,list: if true;
+      allow delete: if isSignedIn(); 
+    	allow create,update: if (isSignedIn() && isValidFeedback());  
+    }
     function isSignedIn() {
     	return request.auth != null
       && request.auth.uid != null  
@@ -42,6 +47,10 @@ service cloud.firestore {
       && incomingData().time.size() > 0
       && incomingData().venue.size() > 0
       && incomingData().djs.size() > 0;
+  	}
+    function isValidFeedback() {
+    	return incomingData().collection.size() > 0 
+      && incomingData().document.size() > 0;
   	}
     function incomingData() {
       return request.resource.data;
