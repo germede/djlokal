@@ -27,6 +27,16 @@ const routes = [
     component: () => import("../views/Events")
   },
   {
+    path: "/best-of",
+    name: "best-of",
+    component: () => import("../views/BestOf")
+  },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: () => import("../views/Calendar")
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "404",
     component: () => import("../views/_404")

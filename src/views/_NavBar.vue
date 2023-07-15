@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" data-bs-parent="body" id="nav-bar">
         <ul class="navbar-nav mx-auto mb-2 mb-sm-0 mt-md-1" style="overflow: auto;">
           <li class="nav-link">
-            <router-link to="/calendar" class="nav-link disabled">
+            <router-link to="/calendar" class="nav-link">
               <vue-feather type="calendar" class="d-lg-block mx-auto"></vue-feather>
               Calendar
             </router-link>
@@ -37,7 +37,7 @@
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/best-of" class="nav-link disabled">
+            <router-link to="/best-of" class="nav-link">
               <vue-feather type="star" class="d-lg-block mx-auto"></vue-feather>
               Best of
             </router-link>
