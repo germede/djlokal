@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "Calvin Harris",
         "genre": "ELECTRONICA"
     },
@@ -22,5 +21,69 @@
     {
         "name": "Skrillex",
         "genre": "DUBSTEP"
+    },
+    {
+        "name": "Boris Brejcha",
+        "genre": "TECHNO"
+    },
+    {
+        "name": "DJ Snake",
+        "genre": "HIP_HOP"
+    },
+    {
+        "name": "Pedro Winter",
+        "genre": "ELECTRO_HOUSE"
+    },
+    {
+        "name": "Nico Moreno",
+        "genre": "TECHNO"
+    },
+    {
+        "name": "Robin Schulz",
+        "genre": "ECHO_POP"
+    },
+    {
+        "name": "Kygo",
+        "genre": "TROPICAL_HOUSE"
+    },
+    {
+        "name": "DJ Chichi",
+        "genre": "TECHNO"
+    },
+    {
+        "name": "Marshmello",
+        "genre": "FUTURE_BASS"
+    },
+    {
+        "name": "Alesso",
+        "genre": "HOUSE"
+    },
+    {
+        "name": "Jerro",
+        "genre": "HOUSE"
+    },
+    {
+        "name": "Zoska",
+        "genre": "ELECTRO"
+    },
+    {
+        "name": "Lost Frequencies",
+        "genre": "Deep-House-Tracks"
+    },
+    {
+        "name": "Nina Kraviz",
+        "genre": "MINIMAL_TECHNO"
+    },
+    {
+        "name": " The Chainsmokers",
+        "genre": "FUTURE_BASS"
+    },
+    {
+        "name": "Amelie Lens",
+        "genre": "TECHNO"
+    },
+    {
+        "name": "Charlotte de Witte",
+        "genre": "TECHNO"
     }
 ]
