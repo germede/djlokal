@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <h1>
           <vue-feather type="list"></vue-feather>
@@ -21,7 +21,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div v-if="currentItem">
         <d-j-item :dj="currentItem" @refreshList="refreshList" />
       </div>
@@ -31,16 +31,20 @@
         </div>
       </div>
     </div>
+    <div class="col-md-3" v-if="currentItem">
+      <feedbacks collection="djs" :document="currentItem" />
+    </div>
   </div>
 </template>
 
 <script>
 import DJ from "../models/DJ";
 import DJItem from "./DJ";
+import Feedbacks from "./Feedbacks";
 
 export default {
   name: "dj-list",
-  components: { DJItem },
+  components: { DJItem, Feedbacks},
   data() {
     return {
       items: [],
@@ -52,17 +56,9 @@ export default {
   methods: {
     onDataChange(items) {
       let _items = [];
-
       items.forEach((item) => {
-        let id = item.id;
-        let data = item.data();
-        _items.push({
-          id: id,
-          name: data.name,
-          genre: data.genre,
-        });
+        _items.push(DJ.fromFirestore(item));
       });
-
       this.items = _items;
     },
 

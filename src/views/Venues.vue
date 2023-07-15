@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <h1>
           <vue-feather type="list"></vue-feather>
@@ -29,7 +29,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div v-if="currentItem">
         <venue-item :venue="currentItem" @refreshList="refreshList" />
       </div>
@@ -39,16 +39,20 @@
         </div>
       </div>
     </div>
+    <div class="col-md-3" v-if="currentItem">
+      <feedbacks collection="venues" :document="currentItem" />
+    </div>
   </div>
 </template>
 
 <script>
 import Venue from "../models/Venue";
 import VenueItem from "./Venue";
+import Feedbacks from "./Feedbacks";
 
 export default {
   name: "venue-list",
-  components: { VenueItem },
+  components: { VenueItem, Feedbacks },
   data() {
     return {
       items: [],
@@ -60,19 +64,9 @@ export default {
   methods: {
     onDataChange(items) {
       let _items = [];
-
       items.forEach((item) => {
-        let id = item.id;
-        let data = item.data();
-        _items.push({
-          id: id,
-          name: data.name,
-          address: data.address,
-          capacity: data.capacity,
-          contact: data.contact,
-        });
+        _items.push(Venue.fromFirestore(item));
       });
-
       this.items = _items;
     },
 

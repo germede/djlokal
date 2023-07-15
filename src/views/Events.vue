@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <template>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
         <h1>
           <vue-feather type="list"></vue-feather>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <ul class="list-group mt-3 mb-3">
-        <li class="list-group-item d-flex justify-content-between align-items-start "
+        <li class="list-group-item d-flex justify-content-between align-items-start"
           :class="{ active: index == currentIndex }" v-for="(event, index) in items" :key="index"
           @click="setActive(event, index)">
           <div class="ms-2 me-auto">
@@ -28,7 +28,7 @@
         </li>
       </ul>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-6">
       <div v-if="currentItem">
         <event-item :event="currentItem" @refreshList="refreshList" />
       </div>
@@ -38,16 +38,20 @@
         </div>
       </div>
     </div>
+    <div class="col-md-3" v-if="currentItem">
+      <feedbacks collection="events" :document="currentItem" />
+    </div>
   </div>
 </template>
 
 <script>
 import Event from "../models/Event";
 import EventItem from "./Event";
+import Feedbacks from "./Feedbacks";
 
 export default {
   name: "event-list",
-  components: { EventItem },
+  components: { EventItem, Feedbacks },
   data() {
     return {
       items: [],
@@ -59,21 +63,9 @@ export default {
   methods: {
     onDataChange(items) {
       let _items = [];
-
       items.forEach((item) => {
-        let id = item.id;
-        let data = item.data();
-        _items.push({
-          id: id,
-          name: data.name,
-          genres: data.genres,
-          date: data.date,
-          time: data.time,
-          venue: data.venue,
-          djs: data.djs,
-        });
+        _items.push(Event.fromFirestore(item));
       });
-
       this.items = _items;
     },
 
