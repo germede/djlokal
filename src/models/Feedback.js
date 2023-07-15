@@ -1,6 +1,7 @@
 import { firestore } from "../firebase";
 
 const db = firestore.collection("/feedbacks");
+import { default as eventDB } from "./Event";
 
 class Feedback {
   getAll() {
@@ -33,22 +34,30 @@ class Feedback {
       feedback.collection !== "events" &&
       feedback.collection !== "venues")
       error += "Feedback collection must be either djs or events or venues.\n";
-    
+
     if (!feedback.document || feedback.document === "")
       error += "Feedback document is required.\n";
     else if (!(typeof feedback.document === "string"))
       error += "Feedback document must be a string.\n";
+    else if (feedback.collection === "events")
+      await eventDB.getAll().doc(feedback.document).get().then((doc) => {
+        const event = eventDB.fromFirestore(doc);
+        const eventDate = new Date(event.date);
+        if (eventDate >= new Date()) {
+          error += "No event feedback allowed before it has happened.\n";
+        }
+      });
     else if (
       feedback.collection === "djs" ||
       feedback.collection === "events" ||
-      feedback.collection === "venues") {
-      await firestore.collection("/"+feedback.collection).doc(feedback.document)
+      feedback.collection === "venues")
+      await firestore.collection("/" + feedback.collection)
+        .doc(feedback.document)
         .get()
         .then((querySnapshot) => {
           if ((querySnapshot.empty))
             error += `No doc ${feedback.document} in ${feedback.collection}.\n`;
         });
-    }
 
     if (!feedback.stars)
       error += "Feedback stars is required.\n";

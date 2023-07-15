@@ -140,27 +140,13 @@ export default {
     this.unsubscribeVenues = Venue
       .getAll().orderBy("name", "asc").onSnapshot(items => {
         let _items = [];
-        items.forEach((item) => {
-          let id = item.id;
-          let data = item.data();
-          _items.push({
-            id: id,
-            name: data.name,
-          });
-        });
+        items.forEach((item) => _items.push(Venue.fromFirestore(item)));
         this.venues = _items;
       });
     this.unsubscribeDJs = DJ
       .getAll().orderBy("name", "asc").onSnapshot(items => {
         let _items = [];
-        items.forEach((item) => {
-          let id = item.id;
-          let data = item.data();
-          _items.push({
-            id: id,
-            name: data.name,
-          });
-        });
+        items.forEach((item) => _items.push(DJ.fromFirestore(item)));
         this.djs = _items;
       });
   },
