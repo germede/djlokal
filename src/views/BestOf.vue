@@ -21,8 +21,8 @@
       <div class="col-md-4">
         <h2 class="text-center w-100">Best <b>Events</b></h2>
         <ol class="list-group list-group-numbered mt-3 mb-3">
-          <li class="list-group-item d-flex justify-content-between align-items-start" v-for="(item, index) in events"
-            :key="index">
+          <li class="list-group-item d-flex justify-content-between align-items-start"
+            v-for="(item, index) in sortByMean(events)" :key="index">
             {{ item.name }}
             <span class="badge bg-secondary rounded-pill">
               <span v-if="item.mean">{{ item.mean }}</span>
@@ -35,8 +35,8 @@
       <div class="col-md-4">
         <h2 class="text-center w-100">Best <b>Venues</b></h2>
         <ol class="list-group list-group-numbered mt-3 mb-3">
-          <li class="list-group-item d-flex justify-content-between align-items-start" v-for="(item, index) in venues"
-            :key="index">
+          <li class="list-group-item d-flex justify-content-between align-items-start"
+            v-for="(item, index) in sortByMean(venues)" :key="index">
             {{ item.name }}
             <span class="badge bg-secondary rounded-pill">
               <span v-if="item.mean">{{ item.mean }}</span>
