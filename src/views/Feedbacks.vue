@@ -51,11 +51,11 @@
         </div>
       </div>
     </div>
-    <div v-if="items.filter(feedback => currentDocument.id == feedback.document).length > 0">
+    <div v-if="items.filter(feedback => currentDocument.name == feedback.document).length > 0">
       <ul class="list-group mt-3 mb-3">
         <template v-for="(feedback, index) in items" :key="index">
           <li class="list-group-item" :class="{ active: index == currentIndex }" @click="setActive(feedback, index)"
-            v-if="currentDocument.id == feedback.document">
+            v-if="currentDocument.name == feedback.document">
             <span class="badge bg-secondary rounded-pill">
               <span v-for="(star, index) in feedback.stars" :key="index">
                 <vue-feather type="star" size="11" stroke="yellow" fill="white"></vue-feather>
@@ -117,7 +117,7 @@ export default {
     },
 
     addItem() {
-      this.currentItem = { stars: 3, comment: "" };
+      this.currentItem = Feedback.empty();
       this.currentIndex = -1;
     },
 
@@ -133,7 +133,7 @@ export default {
     async updateFeedback() {
       const data = {
         collection: this.currentCollection,
-        document: this.currentDocument.id,
+        document: this.currentDocument.name,
         stars: parseInt(this.currentItem.stars),
         comment: this.currentItem.comment,
       };

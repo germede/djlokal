@@ -31,17 +31,17 @@ service cloud.firestore {
     }
     function isValidDJ() {
     	return incomingData().name.size() > 0 
-      && incomingData().name.size() < 21 
+      && incomingData().name.size() < 31 
       && incomingData().genre.size() > 0;
   	}
     function isValidVenue() {
     	return incomingData().name.size() > 0 
-      && incomingData().name.size() < 21 
-      && incomingData().address.size() > 20;
+      && incomingData().name.size() < 31 
+      && incomingData().address.size() > 0;
     }
     function isValidEvent() {
     	return incomingData().name.size() > 0 
-      && incomingData().name.size() < 21 
+      && incomingData().name.size() < 41 
       && incomingData().genres.size() > 0
       && incomingData().date.size() > 0
       && incomingData().time.size() > 0

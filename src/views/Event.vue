@@ -29,7 +29,7 @@
         <label for="name">Name</label>
       </div>
       <div class="mt-3">
-        <select class="form-select" v-model="currentEvent.genres" id="genres" size="22" multiple>
+        <select class="form-select" v-model="currentEvent.genres" id="genres" size="10" multiple>
           <option disabled value="">Select one or more genres</option>
           <option v-for="(genre, index) in genres" :key="index" :value="index">{{ genre }}</option>
         </select>
@@ -45,14 +45,14 @@
       <div class="form-floating mt-3">
         <select class="form-select" v-model="currentEvent.venue" id="venue">
           <option disabled value="">Select one</option>
-          <option v-for="(venue) in venues" :key="venue.id" :value="venue.id">{{ venue.name }}</option>
+          <option v-for="(venue) in venues" :key="venue.name" :value="venue.name">{{ venue.name }}</option>
         </select>
         <label for="venue">Venue</label>
       </div>
       <div class="mt-3">
-        <select class="form-select" v-model="currentEvent.djs" id="djs" multiple>
+        <select class="form-select" v-model="currentEvent.djs" id="djs" size="15" multiple>
           <option disabled value="">Select one or more DJs</option>
-          <option v-for="(dj) in djs" :key="dj.id" :value="dj.id">{{ dj.name }}</option>
+          <option v-for="(dj) in djs" :key="dj.name" :value="dj.name">{{ dj.name }}</option>
         </select>
       </div>
       <hr>

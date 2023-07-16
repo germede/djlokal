@@ -19,15 +19,15 @@
             </router-link>
           </li>
           <li class="nav-link">
-            <router-link to="/events" class="nav-link">
-              <vue-feather type="music" class="d-lg-block mx-auto"></vue-feather>
-              Events
-            </router-link>
-          </li>
-          <li class="nav-link">
             <router-link to="/djs" class="nav-link">
               <vue-feather type="users" class="d-lg-block mx-auto"></vue-feather>
               DJs
+            </router-link>
+          </li>
+          <li class="nav-link">
+            <router-link to="/events" class="nav-link">
+              <vue-feather type="music" class="d-lg-block mx-auto"></vue-feather>
+              Events
             </router-link>
           </li>
           <li class="nav-link">

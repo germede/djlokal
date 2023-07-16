@@ -17,25 +17,25 @@ const routes = [
     component: () => import("../views/DJs")
   },
   {
-    path: "/venues",
-    name: "venues",
-    component: () => import("../views/Venues")
-  },
-  {
     path: "/events",
     name: "events",
     component: () => import("../views/Events")
+  },
+  {
+    path: "/venues",
+    name: "venues",
+    component: () => import("../views/Venues")
   },
   {
     path: "/best-of",
     name: "best-of",
     component: () => import("../views/BestOf")
   },
-  {
-    path: "/calendar",
-    name: "calendar",
-    component: () => import("../views/Calendar")
-  },
+  // {
+  //   path: "/calendar",
+  //   name: "calendar",
+  //   component: () => import("../views/Calendar")
+  // },
   {
     path: "/:pathMatch(.*)*",
     name: "404",
