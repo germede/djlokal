@@ -15,16 +15,28 @@
         </div>
       </div>
       <ul class="list-group mt-3 mb-3">
-        <li class="list-group-item d-flex justify-content-between align-items-start"
-          :class="{ active: index == currentIndex }" v-for="(event, index) in items" :key="index"
-          @click="setActive(event, index)">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">{{ event.name }}</div>
-          </div>
-          <span class="badge bg-secondary rounded-pill">
-            <vue-feather type="calendar" size="11"></vue-feather>
-            {{ event.date }} {{ event.time }}
-          </span>
+        <li class="list-group-item" :class="{ active: index == currentIndex }" v-for="(event, index) in items"
+          :key="index" @click="setActive(event, index)">
+          <vue-feather type="calendar" size="11"></vue-feather>
+          {{ event.date }} {{ event.time }}
+          <div class="fw-bold">{{ event.name }}</div>
+        </li>
+      </ul>
+      <ul class="pagination">
+        <li class="page-item" :class="{ disabled: page <= 1 }">
+          <a class="page-link button" href="#" @click.prevent="setPage(page - 1)">
+            <span>&laquo;</span>
+          </a>
+        </li>
+        <template v-for="p in totalPages" :key="p">
+          <li class="page-item" :class="{ active: page == p }">
+            <a class="page-link button" href="#" @click.prevent="setPage(p)">{{ p }}</a>
+          </li>
+        </template>
+        <li class="page-item" :class="{ disabled: page >= totalPages }">
+          <a class="page-link button" href="#" @click.prevent="setPage(page + 1)">
+            <span>&raquo;</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -50,39 +62,44 @@ import EventItem from "./Event";
 import Feedbacks from "./Feedbacks";
 
 export default {
-  name: "event-list",
+  name: "dj-list",
   components: { EventItem, Feedbacks },
   data() {
     return {
+      allItems: [],
       items: [],
+      page: 1,
+      perPage: 5,
+      totalPages: 0,
+      loading: false,
       currentItem: null,
       currentIndex: -1,
       unsubscribe: null
     };
   },
   methods: {
-    onDataChange(items) {
-      let _items = [];
-      items.forEach((item) => {
-        _items.push(Event.fromFirestore(item));
-      });
-      this.items = _items;
+    onDataChange(qS) {
+      let items = [];
+      qS.forEach((item) => items.push(Event.fromFirestore(item)));
+      this.allItems = items;
+      this.totalPages = Math.ceil(this.allItems.length / this.perPage);
+      this.refreshList();
     },
 
     refreshList() {
       this.currentItem = null;
       this.currentIndex = -1;
+      this.items = [];
+      for (
+        let i = (this.page - 1) * this.perPage;
+        i <= ((this.page - 1) * this.perPage + this.perPage) - 1;
+        i++) {
+        if (this.allItems.length > i) this.items.push(this.allItems[i]);
+      }
     },
 
     addItem() {
-      this.currentItem = {
-        name: "",
-        genres: [],
-        date: "",
-        time: "",
-        venue: "",
-        djs: [],
-      };
+      this.currentItem = Event.empty();
       this.currentIndex = -1;
     },
 
@@ -94,10 +111,18 @@ export default {
         this.currentIndex = index;
       }
     },
+
+    setPage(i) {
+      if (i >= 1 && i <= this.totalPages) {
+        this.page = i;
+        this.refreshList();
+      }
+    }
   },
   mounted() {
     this.unsubscribe = Event
-      .getAll().orderBy("name", "asc").onSnapshot(this.onDataChange);
+      .getAll().orderBy("date", "asc").onSnapshot(this.onDataChange);
+
   },
   beforeUnmount() {
     this.unsubscribe();

@@ -20,6 +20,23 @@
           {{ dj.name }}
         </li>
       </ul>
+      <ul class="pagination">
+        <li class="page-item" :class="{ disabled: page <= 1 }">
+          <a class="page-link button" href="#" @click.prevent="setPage(page - 1)">
+            <span>&laquo;</span>
+          </a>
+        </li>
+        <template v-for="p in totalPages" :key="p">
+          <li class="page-item" :class="{ active: page == p }">
+            <a class="page-link button" href="#" @click.prevent="setPage(p)">{{ p }}</a>
+          </li>
+        </template>
+        <li class="page-item" :class="{ disabled: page >= totalPages }">
+          <a class="page-link button" href="#" @click.prevent="setPage(page + 1)">
+            <span>&raquo;</span>
+          </a>
+        </li>
+      </ul>
     </div>
     <div class="col-md-6">
       <div v-if="currentItem">
@@ -44,34 +61,43 @@ import Feedbacks from "./Feedbacks";
 
 export default {
   name: "dj-list",
-  components: { DJItem, Feedbacks},
+  components: { DJItem, Feedbacks },
   data() {
     return {
+      allItems: [],
       items: [],
+      page: 1,
+      perPage: 5,
+      totalPages: 0,
+      loading: false,
       currentItem: null,
       currentIndex: -1,
       unsubscribe: null
     };
   },
   methods: {
-    onDataChange(items) {
-      let _items = [];
-      items.forEach((item) => {
-        _items.push(DJ.fromFirestore(item));
-      });
-      this.items = _items;
+    onDataChange(qS) {
+      let items = [];
+      qS.forEach((item) => items.push(DJ.fromFirestore(item)));
+      this.allItems = items;
+      this.totalPages = Math.ceil(this.allItems.length / this.perPage);
+      this.refreshList();
     },
 
     refreshList() {
       this.currentItem = null;
       this.currentIndex = -1;
+      this.items = [];
+      for (
+        let i = (this.page - 1) * this.perPage;
+        i <= ((this.page - 1) * this.perPage + this.perPage) - 1;
+        i++) {
+        if (this.allItems.length > i) this.items.push(this.allItems[i]);
+      }
     },
 
     addItem() {
-      this.currentItem = {
-        name: "",
-        genre: "",
-      };
+      this.currentItem = DJ.empty();
       this.currentIndex = -1;
     },
 
@@ -83,6 +109,13 @@ export default {
         this.currentIndex = index;
       }
     },
+
+    setPage(i) {
+      if (i >= 1 && i <= this.totalPages) {
+        this.page = i;
+        this.refreshList();
+      }
+    }
   },
   mounted() {
     this.unsubscribe = DJ
