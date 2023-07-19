@@ -1,0 +1,86 @@
+[
+    {
+        "name": "The O2 Arena",
+        "address": "London, England",
+        "capacity": 20000,
+        "contact": "info@theo2arena.co.uk"
+    },
+    {
+        "name": "Accor Arena",
+        "address": "Paris, France",
+        "capacity": 20300,
+        "contact": ""
+    },
+    {
+        "name": "Mercedes-Benz Arena",
+        "address": "Berlin, Germany",
+        "capacity": 17000,
+        "contact": "info@mercedes-benz-arena.de"
+    },
+    {
+        "name": "Ziggo Dome",
+        "address": "Amsterdam, Netherlands",
+        "capacity": 17000,
+        "contact": ""
+    },
+    {
+        "name": "SSE Arena Wembley",
+        "address": "London, England",
+        "capacity": 12500,
+        "contact": "info@ssearenawembley.co.uk"
+    },
+    {
+        "name": "Budokan",
+        "address": "Tokyo, Japan",
+        "capacity": 14000,
+        "contact": ""
+    },
+    {
+        "name": "The Wiltern",
+        "address": "Los Angeles, CA, USA",
+        "capacity": 1800,
+        "contact": "info@thewiltern.com"
+    },
+    {
+        "name": "The Fillmore San Francisco",
+        "address": "San Francisco, CA, USA",
+        "capacity": 1900,
+        "contact": ""
+    },
+    {
+        "name": "The Warehouse",
+        "address": "Sydney, Australia",
+        "capacity": 10000,
+        "contact": "info@thewarehousesydney.com"
+    },
+    {
+        "name": "The Warehouse",
+        "address": "Chicago, IL, USA",
+        "capacity": 5000,
+        "contact": ""
+    },
+    {
+        "name": "The Gorge Amphitheatre",
+        "address": "George, WA, USA",
+        "capacity": 25000,
+        "contact": ""
+    },
+    {
+        "name": "Red Rocks Amphitheatre",
+        "address": "Morrison, CO, USA",
+        "capacity": 9525,
+        "contact": ""
+    },
+    {
+        "name": "The Greek Theatre",
+        "address": "Los Angeles, CA, USA",
+        "capacity": 5830,
+        "contact": "info@greektheatrela.com"
+    },
+    {
+        "name": "The Forum Melbourne",
+        "address": "Melbourne, Australia",
+        "capacity": 12000,
+        "contact": "info@theforummelbourne.com"
+    }
+]

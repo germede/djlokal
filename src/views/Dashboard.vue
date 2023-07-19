@@ -13,7 +13,10 @@
 </template>
   
 <script>
+import Event from "../models/Event";
 import DJ from "../models/DJ";
+import Venue from "../models/Venue";
+import Feedback from "../models/Feedback";
 
 export default {
   name: "nav-bar",
@@ -22,26 +25,48 @@ export default {
   },
   methods: {
     generateTestData() {
-      fetch("/testdata.json")
-        .then(response => {
-          if (!response.ok) throw new Error("HTTP error " + response.status);
-          return response.json();
-        })
-        .then(json => {
-          json.forEach(dj => {
-            DJ.create(dj);
+
+      const generate = function (collection, model) {
+        fetch(`/testdata/${collection}.json`)
+          .then(response => {
+            if (!response.ok) throw new Error("HTTP error " + response.status);
+            return response.json();
+          })
+          .then(json => {
+            json.forEach(e => {
+              model.create(e);
+              const nrOfFeedbacks = Math.floor(Math.random() * 6);
+              for (let i = 0; i < nrOfFeedbacks; i++) {
+                const nrOfStars = Math.floor(Math.random() * 5) + 1;
+                const comment = nrOfStars === 5 ? "Fantastic" :
+                  nrOfStars === 1 ? "Terrible" : "";
+                Feedback.create({
+                  collection: collection,
+                  document: e.name,
+                  stars: nrOfStars,
+                  comment: comment
+                });
+              }
+              console.log(
+                `${nrOfFeedbacks} random feedbacks were created for ${e.name}`
+              );
+            });
+            alert(`${json.length} ${collection} were successfully created`);
+          })
+          .catch(function (e) {
+            this.dataError = true;
+            alert(e);
           });
-          alert(`${json.length} DJ's were successfully created`);
-        })
-        .catch(function (e) {
-          this.dataError = true;
-          alert(e);
-        });
+      };
+      generate("djs", DJ);
+      generate("venues", Venue);
+      generate("events", Event);
     },
     clearAllData() {
-      DJ.getAll().get().then(res => {
-        res.forEach(element => { element.ref.delete(); });
-      });
+      Event.getAll().get().then(res => res.forEach(e => e.ref.delete()));
+      DJ.getAll().get().then(res => res.forEach(e => e.ref.delete()));
+      Venue.getAll().get().then(res => res.forEach(e => e.ref.delete()));
+      Feedback.getAll().get().then(res => res.forEach(e => e.ref.delete()));
       alert("All data was successfully deleted");
     },
   },

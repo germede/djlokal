@@ -1,0 +1,58 @@
+[
+    {
+      "name": "Carl Cox Presents: Space Ibiza",
+      "genres": ["TECHNO", "TRANCE"],
+      "date": "2023-08-05",
+      "time": "22:00",
+      "venue": "The O2 Arena",
+      "djs": ["Calvin Harris", "David Guetta", "Martin Garrix"]
+    },
+    {
+      "name": "Deadmau5: Cube V3 Tour",
+      "genres": ["ELECTRO_HOUSE", "PROGRESSIVE_HOUSE"],
+      "date": "2023-08-12",
+      "time": "23:00",
+      "venue": "Accor Arena",
+      "djs": ["Tiësto", "Steve Aoki", "Skrillex"]
+    },
+    {
+      "name": "Diplo Presents: Mad Decent Block Party",
+      "genres": ["TRAP", "BASS_MUSIC"],
+      "date": "2023-08-19",
+      "time": "00:00",
+      "venue": "Mercedes-Benz Arena",
+      "djs": ["Boris Brejcha", "DJ Snake", "Pedro Winter"]
+    },
+    {
+      "name": "Fatboy Slim: The Big Beach Boutique Tour",
+      "genres": ["BIG_BEAT", "DISCO"],
+      "date": "2023-08-26",
+      "time": "22:00",
+      "venue": "Ziggo Dome",
+      "djs": ["Nico Moreno", "Robin Schulz", "Kygo"]
+    },
+    {
+      "name": "Ferry Corsten: Full On 90s",
+      "genres": ["TRANCE", "HARD_TRANCE"],
+      "date": "2023-09-02",
+      "time": "23:00",
+      "venue": "SSE Arena Wembley",
+      "djs": ["DJ Chichi", "Marshmello", "Alesso"]
+    },
+    {
+      "name": "Griz: The Ride Waves Tour",
+      "genres": ["BASS_MUSIC", "ELECTRONICA"],
+      "date": "2023-09-09",
+      "time": "00:00",
+      "venue": "Budokan",
+      "djs": ["Jerro", "Zoska", "Lost Frequencies"]
+    },
+    {
+      "name": "Hardwell Presents: Revealed Miami",
+      "genres": ["BIG_ROOM_HOUSE", "PROGRESSIVE_HOUSE"],
+      "date": "2023-09-16",
+      "time": "22:00",
+      "venue": "The Wiltern",
+      "djs": ["Nina Kraviz", "The Chainsmokers", "Amelie Lens"]
+    }
+  ]
