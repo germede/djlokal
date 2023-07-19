@@ -31,11 +31,11 @@ const routes = [
     name: "best-of",
     component: () => import("../views/BestOf")
   },
-  // {
-  //   path: "/calendar",
-  //   name: "calendar",
-  //   component: () => import("../views/Calendar")
-  // },
+  {
+    path: "/calendar",
+    name: "calendar",
+    component: () => import("../views/Calendar")
+  },
   {
     path: "/:pathMatch(.*)*",
     name: "404",
