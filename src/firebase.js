@@ -15,4 +15,60 @@ const app = firebase.initializeApp(config);
 const firestore = firebase.firestore(app);
 const auth = firebase.auth(app);
 
-export { firestore, auth };
+async function updateOnCascade(db, collection, field, model, id, value, arr) {
+  await db
+    .doc(id)
+    .get()
+    .then((qS) => {
+      let oldValue = model.prototype.fromFirestore(qS).name;
+      let refDB = firestore.collection("/" + collection);
+      refDB
+        .where(
+          field,
+          arr ? "array-contains" : "==",
+          oldValue
+        )
+        .get()
+        .then((qS) => {
+          qS.docs.map((doc) => {
+            let toUpdate = {};
+            if (arr) {
+              const newArray = [];
+              for (const oldString of doc.data()[field]) {
+                if (oldString === oldValue) newArray.push(value);
+                else newArray.push(oldString);
+              }
+              toUpdate[field] = newArray;
+            } else {
+              toUpdate[field] = value;
+            }
+            refDB.doc(doc.id).update(toUpdate);
+          });
+        });
+    });
+}
+
+async function deleteOnCascade(db, collection, field, model, id) {
+  await db
+    .doc(id)
+    .get()
+    .then((qS) => {
+      let oldValue = model.prototype.fromFirestore(qS).name;
+      let refDB = firestore.collection("/" + collection);
+      refDB
+        .where(
+          field,
+          "==",
+          oldValue
+        )
+        .get()
+        .then((qS) => {
+          qS.docs.map((doc) => {
+            refDB.doc(doc.id).delete();
+          });
+        });
+    });
+}
+
+
+export { firestore, auth, updateOnCascade, deleteOnCascade };

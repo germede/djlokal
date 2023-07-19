@@ -10,16 +10,16 @@ class Feedback {
 
   async create(feedback) {
     await this.validate(feedback);
-    return db.add(feedback);
+    await db.add(feedback);
   }
 
   async update(id, value) {
     await this.validate(value);
-    return db.doc(id).update(value);
+    await db.doc(id).update(value);
   }
 
-  delete(id) {
-    return db.doc(id).delete();
+  async delete(id) {
+    await db.doc(id).delete();
   }
 
   async validate(feedback) {
@@ -40,25 +40,19 @@ class Feedback {
     else if (!(typeof feedback.document === "string"))
       error += "Feedback document must be a string.\n";
     else if (feedback.collection === "events")
-      await eventDB.getAll().doc(feedback.document).get().then((doc) => {
-        const event = eventDB.fromFirestore(doc);
-        const eventDate = new Date(event.date);
-        if (eventDate >= new Date()) {
-          error += "No event feedback allowed before it has happened.\n";
-        }
-      });
-    else if (
-      feedback.collection === "djs" ||
-      feedback.collection === "events" ||
-      feedback.collection === "venues")
-      await firestore.collection("/" + feedback.collection)
-        .doc(feedback.document)
+      await eventDB.getAll()
+        .where("name", "==", feedback.document)
         .get()
-        .then((querySnapshot) => {
-          if ((querySnapshot.empty))
-            error += `No doc ${feedback.document} in ${feedback.collection}.\n`;
+        .then((qS) => {
+          qS.docs.map((doc) => {
+            const event = eventDB.fromFirestore(doc);
+            const eventDate = new Date(event.date);
+            if (eventDate >= new Date()) {
+              error += "No event feedback allowed before it has happened.\n";
+            }
+          });
         });
-
+        
     if (!feedback.stars)
       error += "Feedback stars is required.\n";
     else if (!Number.isInteger(feedback.stars))
@@ -74,13 +68,20 @@ class Feedback {
     if (error) throw Error(error);
   }
 
+  empty() {
+    return { 
+      collection: "",
+      document: "",
+      stars: 3, 
+      comment: "" 
+    };
+  }
+
   fromFirestore(snapshot) {
     let id = snapshot.id;
     let data = snapshot.data();
     return {
       id: id,
-      name: data.name,
-      genre: data.genre,
       collection: data.collection,
       document: data.document,
       stars: data.stars,

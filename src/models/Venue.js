@@ -1,4 +1,4 @@
-import { firestore } from "../firebase";
+import { firestore, updateOnCascade, deleteOnCascade} from "../firebase";
 
 const db = firestore.collection("/venues");
 
@@ -9,16 +9,21 @@ class Venue {
 
   async create(venue) {
     await this.validate(venue);
-    return db.add(venue);
+    await db.add(venue);
   }
 
   async update(id, value) {
     await this.validate(value);
-    return db.doc(id).update(value);
+    await updateOnCascade(db, "events", "venue", Venue, id, value.name, false);
+    await updateOnCascade(
+      db, "feedbacks", "document", Venue, id, value.name, false
+    );
+    await db.doc(id).update(value);
   }
 
-  delete(id) {
-    return db.doc(id).delete();
+  async delete(id) {
+    await deleteOnCascade(db, "feedbacks", "document", Venue, id);
+    await db.doc(id).delete();
   }
 
   async validate(venue) {
@@ -28,8 +33,8 @@ class Venue {
       error += "Venue name is required.\n";
     else if (!(typeof venue.name === "string"))
       error += "Venue name must be a string.\n";
-    else if (venue.name.length > 20)
-      error += "Venue name must be at most 20 chars.\n";
+    else if (venue.name.length > 30)
+      error += "Venue name must be at most 30 chars.\n";
     await db.where("name", "==", venue.name)
       .get()
       .then((querySnapshot) => {
@@ -41,9 +46,6 @@ class Venue {
       error += "Venue address is required.\n";
     else if (!(typeof venue.address === "string"))
       error += "Venue address must be a string.\n";
-    else if (venue.address.length < 20)
-      error += "Venue address must be at least 20 chars.\n";
-
 
     if (!venue.capacity)
       error += "Venue capacity is required.\n";
@@ -56,6 +58,15 @@ class Venue {
       error += "Venue contact must be a string.\n";
 
     if (error) throw Error(error);
+  }
+
+  empty() {
+    return {
+      name: "",
+      address: "",
+      capacity: 1,
+      contact: "",
+    };
   }
 
   fromFirestore(snapshot) {

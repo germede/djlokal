@@ -1,4 +1,4 @@
-import { firestore } from "../firebase";
+import { firestore, updateOnCascade, deleteOnCascade } from "../firebase";
 import GenreEL from "./Genre";
 
 const db = firestore.collection("/djs");
@@ -15,11 +15,16 @@ class DJ {
 
   async update(id, value) {
     await this.validate(value);
-    return db.doc(id).update(value);
+    await updateOnCascade(db, "events", "djs", DJ, id, value.name, true);
+    await updateOnCascade(
+      db, "feedbacks", "document", DJ, id, value.name, false
+    );
+    await db.doc(id).update(value);
   }
 
-  delete(id) {
-    return db.doc(id).delete();
+  async delete(id) {
+    await deleteOnCascade(db, "feedbacks", "document", DJ, id);
+    await db.doc(id).delete();
   }
 
   async validate(dj) {
@@ -29,8 +34,8 @@ class DJ {
       error += "DJ name is required.\n";
     else if (!(typeof dj.name === "string"))
       error += "DJ name must be a string.\n";
-    else if (dj.name.length > 20)
-      error += "DJ name must be at most 20 chars.\n";
+    else if (dj.name.length > 30)
+      error += "DJ name must be at most 30 chars.\n";
     await db.where("name", "==", dj.name)
       .get()
       .then((querySnapshot) => {
@@ -44,6 +49,13 @@ class DJ {
       error += `'${dj.genre}' is not a genre.\n`;
 
     if (error) throw Error(error);
+  }
+
+  empty() {
+    return {
+      name: "",
+      genre: "",
+    };
   }
 
   fromFirestore(snapshot) {

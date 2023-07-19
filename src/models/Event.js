@@ -1,8 +1,5 @@
-import { firestore } from "../firebase";
+import { firestore, updateOnCascade, deleteOnCascade } from "../firebase";
 import GenreEL from "./Genre";
-import { default as venueDB } from "./Venue";
-import { default as djDB } from "./DJ";
-
 const db = firestore.collection("/events");
 
 class Event {
@@ -12,16 +9,20 @@ class Event {
 
   async create(event) {
     await this.validate(event);
-    return db.add(event);
+    await db.add(event);
   }
 
   async update(id, value) {
     await this.validate(value);
-    return db.doc(id).update(value);
+    await updateOnCascade(
+      db, "feedbacks", "document", Event, id, value.name, false
+    );
+    await db.doc(id).update(value);
   }
 
-  delete(id) {
-    return db.doc(id).delete();
+  async delete(id) {
+    await deleteOnCascade(db, "feedbacks", "document", Event, id);
+    await db.doc(id).delete();
   }
 
   async validate(event) {
@@ -31,8 +32,8 @@ class Event {
       error += "Event name is required.\n";
     else if (!(typeof event.name === "string"))
       error += "Event name must be a string.\n";
-    else if (event.name.length > 20)
-      error += "Event name must be at most 20 chars.\n";
+    else if (event.name.length > 40)
+      error += "Event name must be at most 40 chars.\n";
     await db.where("name", "==", event.name)
       .get()
       .then((querySnapshot) => {
@@ -55,24 +56,23 @@ class Event {
 
     if (!event.venue)
       error += "Event venue is required.\n";
-    else await venueDB.getAll().doc(event.venue)
-      .get()
-      .then((querySnapshot) => {
-        if (querySnapshot.empty)
-          error += `There is no venue with ID '${event.venue}'.\n`;
-      });
+
     if (!event.djs || event.djs.length <= 0)
       error += "At least one event DJ is required.\n";
-    else await event.djs.forEach(id => {
-      djDB.getAll().doc(id)
-        .get()
-        .then((querySnapshot) => {
-          if (querySnapshot.empty)
-            error += `There is no DJ with ID '${id}'.\n`;
-        });
-    });
+
 
     if (error) throw Error(error);
+  }
+
+  empty() {
+    return {
+      name: "",
+      genres: "",
+      date: "",
+      time: "",
+      venue: "",
+      djs: "",
+    };
   }
 
   fromFirestore(snapshot) {
