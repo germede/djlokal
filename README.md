@@ -109,7 +109,7 @@ _As an app user, I would like to..._
     - Implementation of pagination for venues, events and feedbacks
     - Implementation of test data for venues, events and feedbacks
     - Implementation of firestore rules for venues, events and feedbacks
-- @[gmedina-de](https://github.com/gmedina-de)
+- @[germede](https://github.com/germede)
   - Assignment 7B:
     - Submit some developer issues regarding README.md
     - Add Markdown formatting to README.md
